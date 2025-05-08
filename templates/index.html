@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function copyToClipboard() {
+            const summaryText = document.getElementById("summary-text");
+            navigator.clipboard.writeText(summaryText.innerText).then(() => {
+                alert("Summary copied to clipboard!");
+            }).catch(err => {
+                alert("Failed to copy text: " + err);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Summarizer</h1>
+        <form method="POST">
+            <textarea name="input_text" rows="10" cols="50" placeholder="Enter your text here..." required></textarea><br><br>
+            <button type="submit">Summarize</button>
+        </form>
+        {% if summary %}
+        <h2>Summary:</h2>
+        <div id="summary-text" style="white-space: pre-wrap; font-family: 'Courier New', monospace;">
+            {{ summary }}
+        </div>
+        <button onclick="copyToClipboard()">Copy</button>
+        {% endif %}
+    </div>
+</body>
+</html>
