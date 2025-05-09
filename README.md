@@ -101,7 +101,7 @@ TextSummarizerApp/
 
 ## 👨‍💻 Author
 
-**Anishkumar**
+Anishkumar K
 GitHub: [Anishkumar-1804](https://github.com/Anishkumar-1804)
 ---
 
